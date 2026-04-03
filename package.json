@@ -1,0 +1,19 @@
+{
+  "name": "resort-booking-task",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "build:client": "npm --workspace client run build",
+    "start:server": "tsx server/src/index.ts",
+    "start": "npm run build:client && npm run start:server --",
+    "test:server": "npm --workspace server run test",
+    "test:client": "npm --workspace client run test",
+    "test": "npm run test:server && npm run test:client"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.5"
+  }
+}
