@@ -1,0 +1,30 @@
+<div
+  class="map-grid"
+  [style.grid-template-columns]="getGridTemplateColumns()"
+>
+  @for (row of map.tiles; track trackByRowIndex($index)) {
+    @for (tile of row; track trackByTile($index, tile)) {
+      <button
+        type="button"
+        class="tile"
+        [class.tile-empty]="tile.type === 'empty'"
+        [class.tile-path]="tile.type === 'path'"
+        [class.tile-path-straight]="getPathVariant(tile) === 'straight'"
+        [class.tile-path-corner]="getPathVariant(tile) === 'corner'"
+        [class.tile-path-crossing]="getPathVariant(tile) === 'crossing'"
+        [class.tile-path-split]="getPathVariant(tile) === 'split'"
+        [class.tile-path-end]="getPathVariant(tile) === 'end'"
+        [class.tile-pool]="tile.type === 'pool'"
+        [class.tile-chalet]="tile.type === 'chalet'"
+        [class.tile-cabana]="tile.type === 'cabana'"
+        [class.tile-cabana-booked]="tile.type === 'cabana' && tile.isAvailable === false"
+        [class.tile-selected]="isSelected(tile)"
+        [class.tile-clickable]="tile.type === 'cabana'"
+        [style.transform]="tile.type === 'path' ? 'rotate(' + getPathRotation(tile) + 'deg)' : null"
+        [disabled]="tile.type !== 'cabana'"
+        [title]="tile.type"
+        (click)="onTileClick(tile)"
+      ></button>
+    }
+  }
+</div>

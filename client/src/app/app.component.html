@@ -1,0 +1,69 @@
+<section class="page">
+  <h1>Resort Map</h1>
+
+  @if (isLoading) {
+    <p>Loading map...</p>
+  } @else if (errorMessage && !map) {
+    <p class="error">{{ errorMessage }}</p>
+  } @else if (map) {
+    <app-resort-map
+      [map]="map"
+      [selectedCabanaId]="selectedCabana?.id ?? null"
+      (cabanaSelected)="onCabanaSelected($event)"
+    ></app-resort-map>
+
+    @if (successMessage) {
+      <p class="success-message">{{ successMessage }}</p>
+    }
+
+    @if (errorMessage && map) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (selectedCabana) {
+      <section class="selection-panel">
+        <h2>Selected cabana</h2>
+        <p><strong>ID:</strong> {{ selectedCabana.id }}</p>
+        <p>
+          <strong>Status:</strong>
+          {{ selectedCabana.isAvailable ? 'Available' : 'Booked' }}
+        </p>
+        <p>
+          <strong>Position:</strong>
+          row {{ selectedCabana.position.row }},
+          col {{ selectedCabana.position.col }}
+        </p>
+
+        @if (selectedCabana.isAvailable) {
+          <form class="booking-form" (ngSubmit)="onSubmitBooking()">
+            <label>
+              Room number
+              <input
+                type="text"
+                name="room"
+                [(ngModel)]="bookingForm.room"
+                [disabled]="isSubmitting"
+              />
+            </label>
+
+            <label>
+              Guest name
+              <input
+                type="text"
+                name="guestName"
+                [(ngModel)]="bookingForm.guestName"
+                [disabled]="isSubmitting"
+              />
+            </label>
+
+            <button type="submit" [disabled]="isSubmitting">
+              {{ isSubmitting ? 'Booking...' : 'Book cabana' }}
+            </button>
+          </form>
+        } @else {
+          <p>This cabana is not available.</p>
+        }
+      </section>
+    }
+  }
+</section>

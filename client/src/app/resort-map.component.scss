@@ -1,0 +1,83 @@
+.map-grid {
+  display: grid;
+  gap: 0;
+  width: fit-content;
+  padding: 8px;
+  background-image: url('/assets/tiles/parchmentBasic.png');
+  background-repeat: repeat;
+  border: 1px solid #d0d0d0;
+}
+
+.tile {
+  width: 40px;
+  height: 40px;
+  display: block;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+}
+
+.tile:disabled {
+  cursor: default;
+}
+
+.tile-empty {
+  background: transparent;
+}
+
+.tile-path {
+  transform-origin: center;
+}
+
+.tile-path-straight {
+  background-image: url('/assets/tiles/arrowStraight.png');
+}
+
+.tile-path-corner {
+  background-image: url('/assets/tiles/arrowCornerSquare.png');
+}
+
+.tile-path-crossing {
+  background-image: url('/assets/tiles/arrowCrossing.png');
+}
+
+.tile-path-split {
+  background-image: url('/assets/tiles/arrowSplit.png');
+}
+
+.tile-path-end {
+  background-image: url('/assets/tiles/arrowEnd.png');
+}
+
+.tile-pool {
+  background-image: url('/assets/tiles/textureWater.png');
+  background-color: #7398ff;
+}
+
+.tile-chalet {
+  background-image: url('/assets/tiles/houseChimney.png');
+}
+
+.tile-cabana {
+  background-image: url('/assets/tiles/cabana.png');
+  background-color: #b5ff8a;
+}
+
+.tile-cabana-booked {
+  background-color: #ff6464;
+}
+
+.tile-clickable {
+  cursor: pointer;
+}
+
+.tile-selected {
+  outline: 3px solid #1d4ed8;
+  outline-offset: -3px;
+  position: relative;
+  z-index: 1;
+}

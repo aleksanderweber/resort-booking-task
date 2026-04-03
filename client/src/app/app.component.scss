@@ -1,0 +1,72 @@
+.page {
+  padding: 24px;
+}
+
+h1 {
+  margin: 0 0 16px;
+}
+
+.error {
+  margin-top: 16px;
+  color: #b00020;
+}
+
+.success-message {
+  margin-top: 16px;
+  color: #136f2d;
+  font-weight: 600;
+}
+
+.selection-panel {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  max-width: 360px;
+  background: #fafafa;
+}
+
+.selection-panel h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.selection-panel p {
+  margin: 0 0 8px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.booking-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.booking-form input {
+  padding: 8px 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.booking-form button {
+  align-self: flex-start;
+  padding: 10px 14px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  background: #ffffff;
+  cursor: pointer;
+  font: inherit;
+}
+
+.booking-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
